@@ -22,6 +22,8 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
     && docker-php-ext-install pdo_mysql zip \
     && apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev
 
+COPY php-fpm.conf /usr/local/etc/php-fpm.conf
+
 CMD ["php-fpm"]
 
 EXPOSE 9000
